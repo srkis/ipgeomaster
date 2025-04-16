@@ -1,0 +1,387 @@
+.plugin-header {
+    margin-bottom: 30px; 
+    padding: 20px;
+    background-color: #f8f9fa; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.plugin-header h1 {
+    font-size: 2.5rem; 
+    font-weight: bold;
+    margin-bottom: 15px; 
+}
+
+.plugin-header p {
+    font-size: 1.1rem; 
+    color: #555; 
+    line-height: 1.6; 
+}
+
+.box-header {
+    margin-bottom: 10px; 
+}
+
+.box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 300px; 
+    overflow-y: auto; 
+}
+
+.country-item, .bot-item {
+    padding: 5px;
+    margin: 5px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.search-input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+}
+
+.container-fluid {
+    padding-left: 0; 
+}
+
+#total-bots-text {
+    text-align: center;
+}
+
+#total-bots-text span {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+#ipGeomasterBlockCountries{
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px; 
+}
+
+.arrow-icon {
+    font-size: 40px;
+    cursor: pointer;
+    color: #0073aa; 
+}
+
+.arrow-icon:hover {
+    color: #005177; 
+}
+
+.box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-height: 200px;
+}
+
+.bot-item {
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.bot-item.selected {
+    background-color: #0073aa; 
+    color: white;
+}
+
+.bot-item.newly-added {
+    background-color: #b6d9df; 
+    transition: background-color 0.5s ease;
+}
+
+@keyframes highlight {
+    0% { background-color: #b6d9df; }
+    100% { background-color: transparent; }
+}
+
+.bot-item.newly-added {
+    animation: highlight 2s ease;
+}
+
+
+.dashicons-info {
+    font-size: 25px;
+    color: #007bff; 
+    position: relative;
+    top: 5px;
+}
+
+
+.modern-button, .save-bots, .save-countries {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 7px;
+    font-size: 15px;
+    font-weight: 800;
+    color: white;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+.modern-button span, .save-bots span, .save-countries span {
+    position: relative;
+    z-index: 2;
+}
+.modern-button::before, .save-bots::before, .save-countries::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+.modern-button:hover::before, .save-bots:hover::before, .save-countries:hover::before {
+    left: 100%;
+}
+.modern-button:hover, .save-bots:hover, .save-countries:hover {
+    /* transform: scale(1.05); */
+}
+.modern-button-arrow {
+    font-size: 24px;
+}
+
+
+
+.form-outline {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+}
+
+.form-outline .form-control {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid #ccc; 
+    outline: none;
+    background: transparent;
+    transition: border-color 0.3s ease;
+    border-radius: 0; 
+}
+
+
+.form-outline .form-label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 13px;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+
+.form-outline .form-control:focus ~ .form-label,
+.form-outline .form-control:not(:placeholder-shown) ~ .form-label {
+    top: -12px; 
+    font-size: 12px;
+    color: #007bff; 
+}
+
+
+.form-outline .form-control:focus {
+    border-bottom-color: #007bff; 
+    box-shadow: none; 
+    border-bottom-width: 2px; 
+    border-bottom-style: solid; 
+}
+
+
+.ip-geomaster-site-url {
+    font-weight: 600;
+    color: #0073aa;
+    font-size: 15px;
+}
+
+
+.custom-textarea {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    resize: none;
+    min-height: 120px;
+}
+.custom-textarea:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+}
+
+
+
+
+.ip-geomaster-panel {
+    /* width: 600px;
+    height: 500px; */
+    border: 1px solid #ddd;
+    position: relative;
+    /* position: fixed;
+    right: 20px;
+    top: 50px; */
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+.ip-geomaster-panel-header {
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+.ip-geomaster-panel-filters {
+    display: flex;
+    margin-bottom: 10px;
+}
+.ip-geomaster-panel-filters select,
+.ip-geomaster-panel-filters input {
+    width: 35%;
+}
+
+.ip-geomaster-panel-filters select{
+    margin:10px;
+}
+
+.ip-geomaster-panel-filters .ip-geomaster-search-container {
+    position: relative;
+    width: 35%;
+    margin: 10px auto;
+}
+.ip-geomaster-panel-filters .ip-geomaster-search-container input {
+    width: 100%;
+    padding-left: 30px;
+}
+.ip-geomaster-panel-filters .ip-geomaster-search-container i {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: gray;
+}
+.ip-geomaster-panel-subheader {
+    background: #f8f9fa;
+    padding: 8px;
+    font-weight: bold;
+    display: flex;
+    margin: 5px 0 5px 0;
+}
+.ip-geomaster-panel-subheader div {
+    width: 50%;
+}
+
+.ip-geomaster-panel-subheader div:nth-child(1) {
+    margin-left: 45px;
+}
+
+.ip-geomaster-panel-subheader div:nth-child(2) {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.ip-geomaster-panel-body {
+    height: 300px;
+    overflow-y: auto;
+}
+.ip-geomaster-ip-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+.ip-geomaster-ip-row:hover {
+    background: #f1f1f1;
+}
+.ip-geomaster-ip {
+    width: 50%;
+    border-left: 3px solid rgb(104, 23, 197);
+    padding-left: 8px;
+}
+.ip-geomaster-notes {
+    width: 50%;
+    text-align: center;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+.ip-geomaster-panel-footer {
+    margin-top: 10px;
+    display: flex;
+    padding:10px;
+}
+.ip-geomaster-panel-footer button {
+    background: #53129e !important;
+    border: none;
+    color: #fff;
+    margin-right: 10px;
+}
+
+
+.ip-geomaster-panel-footer button:hover {
+    background: #53129e !important;
+    border: none;
+    color: #fff;
+}
+
+
+
+.ip-geomaster-hidden {
+    display: none !important;
+}
+
+#ip-geomaster-newIp::placeholder,
+#ip-geomaster-newNotes::placeholder {
+    font-size: 12px;
+}
+
+
+.view-activity-btn {
+    margin: 20px 0px 0px 15px;
+    font-size: 0.813rem;
+    color: #6817c5;
+    text-decoration: none !important;
+    padding: 15px;
+    vertical-align: -webkit-baseline-middle;
+}
+
+
+.view-activity-btn:hover {
+    color: #6817c5;
+    background: #f1f1f1ab;
+
+}
+
+
+
+#paypall-donate{
+     border: none !important;
+    vertical-align: top;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#donate-text{
+    font-weight: 800;
+    margin-bottom: 20px;
+}

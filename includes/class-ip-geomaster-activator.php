@@ -53,7 +53,7 @@ class Ip_Geomaster_Activator {
     
         // check if table was created
         if ($wpdb->last_error) {
-            wp_die('Error creating table: ' . $wpdb->last_error);
+            wp_die( 'Error creating table: ' . esc_html( $wpdb->last_error ) );
         }
     
         // Check if there are any records in the table (if not, insert default data)

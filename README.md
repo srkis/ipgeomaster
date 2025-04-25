@@ -3,7 +3,7 @@ Contributors: srkimafia
 Donate link: https://www.paypal.me/cybersyntax  
 Tags: geo block, country blocker, ip blocker, spam protection, security  
 Requires at least: 5.0  
-Tested up to: 6.7 
+Tested up to: 6.8 
 Requires PHP: 5.0  
 Stable tag: 1.0.0 
 License: GPLv2 or later  

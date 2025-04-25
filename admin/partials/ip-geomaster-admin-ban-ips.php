@@ -178,7 +178,8 @@ function ip_geomaster_ban_ip_settings_page() {
         </div>
 
     </div>
-    <?php echo wp_nonce_field( esc_attr( "ip_geomaster_nonce_action" ), esc_attr( "ip_geomaster_nonce_field" ), true, false ); ?>
+    <?php wp_nonce_field( 'ip_geomaster_nonce_action', 'ip_geomaster_nonce_field', true, false ); ?>
+
 </div>
 
 

@@ -98,17 +98,20 @@ class Ip_Geomaster_Public {
 		
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
+		
 
 		$cache_key = 'ip_geomaster_blocked_countries';
 
 		$cached_row = wp_cache_get( $cache_key, 'ip_geomaster' );
 
 		if ( false === $cached_row ) {
-			$query = "SELECT blocked_data, country_msg FROM {$table_name} WHERE type = %s LIMIT 1";
 
 			$row = $wpdb->get_row(
-				$wpdb->prepare( $query, 'countries' )
+				$wpdb->prepare(
+					"SELECT blocked_data, country_msg FROM `$table_name` WHERE type = %s LIMIT 1",
+					'countries'
+				)
 			);
 
 			if ( $row ) {
@@ -156,12 +159,12 @@ class Ip_Geomaster_Public {
 	public function ip_geomaster_fetch_bots() {
 
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
 		
 		$row = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM %i WHERE type = %s LIMIT 1", 
-				[ $table_name, 'bots' ]
+				"SELECT blocked_data, country_msg FROM `$table_name` WHERE type = %s LIMIT 1",
+				'bots'
 			)
 		);
 
@@ -182,13 +185,13 @@ class Ip_Geomaster_Public {
 	public function ip_geomaster_ban_bots() {
 
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
 		$user_id = get_current_user_id(); // ID of the current user
 
 		$row = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM %i WHERE type = %s LIMIT 1", 
-				[ $table_name, 'bots' ]
+				"SELECT * FROM `$table_name` WHERE type = %s LIMIT 1",
+				'bots'
 			)
 		);
 
@@ -200,7 +203,6 @@ class Ip_Geomaster_Public {
 		}
 		
 		// Get data from the request
-		$user_id = get_current_user_id(); // ID of the current user
 		
 		$banned_bots = isset($_POST['banned_bots']) ? array_map('sanitize_text_field', wp_unslash($_POST['banned_bots'])) : [];
 		$allowed_bots = isset($_POST['allowed_bots']) ? array_map('sanitize_text_field', wp_unslash($_POST['allowed_bots'])) : [];
@@ -254,16 +256,15 @@ class Ip_Geomaster_Public {
 		$data = json_encode(['countries' => $countries]);
 	
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
-	
-	
+
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
+
 		$row = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM %i WHERE type = %s LIMIT 1", 
-				[ $table_name, 'countries' ]
+				"SELECT * FROM `$table_name` WHERE type = %s LIMIT 1",
+				'countries'
 			)
 		);
-
 	
 		if ($row) {
 			// If the row exists, update the row
@@ -297,12 +298,12 @@ class Ip_Geomaster_Public {
 
 	public function ip_geomaster_get_banned_countries() {
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
 
 		$row = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM %i WHERE type = %s LIMIT 1", 
-				$table_name, 'countries'
+				"SELECT * FROM `$table_name` WHERE type = %s LIMIT 1",
+				'countries'
 			)
 		);
 	
@@ -333,12 +334,12 @@ class Ip_Geomaster_Public {
             $country_code = $record['country']['iso_code']; // ISO code of the country
 
 		
-			$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+			$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
 
 			$row = $wpdb->get_row(
 				$wpdb->prepare(
-					"SELECT * FROM %i WHERE type = %s LIMIT 1", 
-					$table_name, 'countries'
+					"SELECT * FROM `$table_name` WHERE type = %s LIMIT 1",
+					'countries'
 				)
 			);
 
@@ -374,14 +375,25 @@ class Ip_Geomaster_Public {
 	private function _checkBots() {
 
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
 
-		$query = $wpdb->prepare(
-			"SELECT mode, bots_msg FROM $table_name WHERE type = %s",  // query string
-			'bots'  
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
+
+		$result = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT mode, bots_msg FROM `$table_name` WHERE type = %s LIMIT 1",
+				'bots'
+			)
 		);
 
-		$result = $wpdb->get_row($query); 
+
+		// $table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+
+		// $query = $wpdb->prepare(
+		// 	"SELECT mode, bots_msg FROM $table_name WHERE type = %s",  // query string
+		// 	'bots'  
+		// );
+
+		// $result = $wpdb->get_row($query); 
 		$bots_msg = $result->bots_msg;
 
 		if ($result->mode == 'off') {
@@ -416,16 +428,23 @@ class Ip_Geomaster_Public {
 	private function _checkIpAddress() {
 
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
 
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
 		$user_ip = $this->_getUserIpAddr();
 
-		$query = $wpdb->prepare(
-			"SELECT mode, ips_msg, blocked_data FROM $table_name WHERE type = %s",  // query string
-			'ips'  
+		$result = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT mode, ips_msg, blocked_data FROM `$table_name` WHERE type = %s LIMIT 1",
+				'ips'
+			)
 		);
 
-		$result = $wpdb->get_row($query); 
+		// $query = $wpdb->prepare(
+		// 	"SELECT mode, ips_msg, blocked_data FROM $table_name WHERE type = %s",  // query string
+		// 	'ips'  
+		// );
+
+		// $result = $wpdb->get_row($query); 
 
 		if (!$result) {
 			return; 
@@ -468,7 +487,7 @@ class Ip_Geomaster_Public {
 		$user_id = get_current_user_id(); // ID of the current user
 
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
 
 		$row = $wpdb->get_row(
 			$wpdb->prepare(
@@ -536,8 +555,8 @@ class Ip_Geomaster_Public {
 
 		$new_ip = [
 			'ip' => $banned_ip,
-			'date' => date('Y-m-d'), 
-			'time' => date('H:i:s'), 
+			'date' => gmdate('Y-m-d'), 
+			'time' => gmdate('H:i:s'), 
 			'notes' => $banned_ip_note
 		];
 
@@ -590,7 +609,7 @@ class Ip_Geomaster_Public {
 		$user_id = get_current_user_id(); // ID of the current user
 
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
 
 		$row = $wpdb->get_row(
 			$wpdb->prepare(
@@ -629,8 +648,8 @@ class Ip_Geomaster_Public {
 
 			array_unshift($data['banned_ips'], [
 				'ip' => $ip,
-				'date' => date('Y-m-d'),
-				'time' => date('H:i:s'),
+				'date' => gmdate('Y-m-d'),
+				'time' => gmdate('H:i:s'),
 				'notes' => $note
 			]);
 		
@@ -672,12 +691,12 @@ class Ip_Geomaster_Public {
 
 		
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+		$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
 
 		$row = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM %i WHERE type = %s LIMIT 1", 
-				$table_name, 'ips'
+				"SELECT * FROM `$table_name` WHERE type = %s LIMIT 1",
+				'ips'
 			)
 		);
 	
@@ -786,7 +805,7 @@ class Ip_Geomaster_Public {
 	 */
 	private function _blockBot($bots_msg) {
 		header('HTTP/1.1 403 Forbidden');
-		wp_die($bots_msg, 'Access Denied', array('response' => 403));
+		wp_die( esc_html( $bots_msg ), 'Access Denied', array('response' => 403) );
 	}
 
 

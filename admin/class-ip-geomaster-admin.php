@@ -88,14 +88,40 @@ class Ip_Geomaster_Admin {
 		
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ip-geomaster-admin.js', array( 'jquery' ), $this->version, false );
 		wp_enqueue_script( 'ip-geomaster-jquery-toast', plugin_dir_url( __FILE__ ) . 'js/jquery.toast.min.js', array( 'jquery' ), $this->version, true );
+		
 		wp_enqueue_script( 'ip-geomaster-popper', plugin_dir_url( __FILE__ ) . 'js/popper.min.js', array( 'jquery' ), '1.14.7', true );
-		wp_enqueue_script( 'ip-geomaster-bootstrap4js',  plugin_dir_url( __FILE__ ) . 'js/bootstrap.min.js', array( 'jquery' ), $this->version, true );
+		
+		wp_enqueue_script( 'ip-geomaster-bootstrap5js',  plugin_dir_url( __FILE__ ) . 'js/bootstrap.min.js', array( 'jquery' ), $this->version, true );
 	
-		 // Prosleđivanje AJAX URL-a i nonce-a u JS
+		 // Sending admin-ajax URL and nonce to the script
 		 wp_localize_script( $this->plugin_name, 'ip_geomaster_ajax', array(
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 			'nonce'    => wp_create_nonce( 'ip-geomaster-ajax-nonce' ),
 		));
+
+
+		if (isset($_GET['page']) && $_GET['page'] === 'ip-geomaster-ban-ip') {
+			wp_enqueue_script(
+				'ip-geomaster-ban-ips-js',
+				plugin_dir_url(__FILE__) . 'js/ip-geomaster-ban-ips-js',
+				array('jquery'),
+				$this->version,
+				true
+			);
+		}
+
+		if (isset($_GET['page']) && $_GET['page'] === 'ip-geomaster-bots') {
+			wp_enqueue_script(
+				'ip-geomaster-bots-js',
+				plugin_dir_url(__FILE__) . 'js/ip-geomaster-bots-js',
+				array('jquery'),
+				$this->version,
+				true
+			);
+		}
+
+
+
 	
 	}
 

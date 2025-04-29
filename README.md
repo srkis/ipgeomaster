@@ -78,10 +78,10 @@ This plugin includes the following third-party libraries:
    - Minified file used: `admin/js/bootstrap.min.js`
    - Original uncompressed source: https://github.com/twbs/bootstrap/blob/v5.3.5/dist/js/bootstrap.js
 
-2. **Popper.js v1.14.7**
+2. **Popper.js v2.11.8**
    - Minified file used: `admin/js/popper.min.js`
-   - Original uncompressed source: https://unpkg.com/popper.js@1.14.7/dist/umd/popper.js
-   - Project repository: https://github.com/popperjs/popper-core/tree/v1.14.7
+   - Original uncompressed source: https://unpkg.com/@popperjs/core@2.11.8/dist/umd/popper.js
+   - Project repository: https://github.com/floating-ui/floating-ui
 
 3. **jquery-toast-plugin**
    - Minified file used: `admin/js/jquery.toast.min.js`

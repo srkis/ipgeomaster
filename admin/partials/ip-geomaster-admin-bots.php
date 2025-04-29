@@ -76,9 +76,16 @@ function ip_geomaster_bots() {
         <div class="box-header">
             <h3>
                 Allowed (Good) Bots
-                <span class="dashicons dashicons-info" data-title="Good Bots" data-toggle="popover" data-placement="right" data-trigger="focus"
-                    data-content="Good bots are automated programs or web crawlers that perform beneficial and legitimate tasks on the internet. Good bots serve helpful purposes such as indexing web pages, monitoring website health, and assisting in digital marketing."
-                    tabindex="0" style="cursor: pointer;"></span>
+            <span class="dashicons dashicons-info" 
+                data-bs-toggle="popover" 
+                data-bs-placement="right" 
+                data-bs-trigger="focus"
+                title="Good Bots"
+                data-bs-content="Good bots are automated programs or web crawlers that perform beneficial and legitimate tasks on the internet. Good bots serve helpful purposes such as indexing web pages, monitoring website health, and assisting in digital marketing."
+                tabindex="0" 
+                style="cursor: pointer;">
+            </span>
+
             </h3>
             
         <div id="allowed-bot-actions" class="mt-2">
@@ -109,9 +116,16 @@ function ip_geomaster_bots() {
     <div class="col-md-5">
         <div class="box-header">
             <h3>Banned (Bad) Bots
-                <span class="dashicons dashicons-info" data-title="Bad Bots" data-toggle="popover" data-placement="right" data-trigger="focus"
-                    data-content="Bad bots are automated programs that perform malicious or unwanted activities on websites, such as scraping content, spamming, launching DDoS attacks, or attempting unauthorized access. Unlike good bots, they violate website policies, consume server resources, and can pose security threats."
-                    tabindex="0" style="cursor: pointer;"></span>
+            <span class="dashicons dashicons-info"
+                data-bs-toggle="popover"
+                data-bs-placement="right"
+                data-bs-trigger="focus"
+                title="Bad Bots"
+                data-bs-content="Bad bots are automated programs that perform malicious or unwanted activities on websites, such as scraping content, spamming, launching DDoS attacks, or attempting unauthorized access. Unlike good bots, they violate website policies, consume server resources, and can pose security threats."
+                tabindex="0"
+                style="cursor: pointer;">
+            </span>
+
             </h3>
                 <div id="banned-bot-actions" class="mt-2">
                     <div class="input-group" style="display: flex; gap: 10px;">
@@ -169,7 +183,7 @@ function ip_geomaster_bots() {
 <script>
 
 jQuery(document).ready(function(){
-			jQuery('[data-toggle="popover"]').popover();   
+			  
 		  });
 
 </script>

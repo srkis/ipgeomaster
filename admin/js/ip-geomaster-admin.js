@@ -2,6 +2,8 @@
 	'use strict';
 
 	$(document).ready(function() {
+
+		
 	
 		// Drag and drop functionality
 		function handleDragStart(event) {

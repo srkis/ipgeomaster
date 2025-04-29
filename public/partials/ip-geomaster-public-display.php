@@ -10,4 +10,4 @@
  * @package    Ip_Geomaster
  * @subpackage Ip_Geomaster/public/partials
  */
-?>
+

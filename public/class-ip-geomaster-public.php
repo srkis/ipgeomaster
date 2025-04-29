@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 require_once IP_GEOMASTER_ROOT_PATH . '/vendor/maxmind-db/src/MaxMind/Db/Reader.php';
 require_once IP_GEOMASTER_ROOT_PATH . '/vendor/maxmind-db/src/MaxMind/Db/Reader/Decoder.php';
 require_once IP_GEOMASTER_ROOT_PATH . '/vendor/maxmind-db/src/MaxMind/Db/Reader/InvalidDatabaseException.php';
@@ -151,7 +153,7 @@ class Ip_Geomaster_Public {
 		];
 	
 		// Send the response
-		echo json_encode($response);
+		echo wp_json_encode($response);
 		wp_die();
 	}
 
@@ -177,7 +179,7 @@ class Ip_Geomaster_Public {
 		];
 	
 		// Send the response
-		echo json_encode($response);
+		echo wp_json_encode($response);
 		wp_die();
 	}
 
@@ -308,9 +310,9 @@ class Ip_Geomaster_Public {
 	
 		if ($row) {
 			$data = json_decode($row->blocked_data, true);
-			echo json_encode($data['countries']);
+			echo wp_json_encode($data['countries']);
 		} else {
-			echo json_encode([]);
+			echo wp_json_encode([]);
 		}
 	
 		wp_die();
@@ -694,12 +696,12 @@ class Ip_Geomaster_Public {
 			'ips_msg' => $row->ips_msg,
 		];
 			
-			echo json_encode($response);
+			echo wp_json_encode($response);
 			wp_die();
 	
 		} else {
 			
-			echo json_encode([]);
+			echo wp_json_encode([]);
 		}
 	
 		wp_die();

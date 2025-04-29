@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 require_once plugin_dir_path( __FILE__ ) . 'partials/ip-geomaster-admin-display.php';
 require_once plugin_dir_path( __FILE__ ) . 'class-ip-geomaster-countries.php';
 require_once plugin_dir_path( __FILE__ ) . 'class-ip-geomaster-bots.php';

@@ -56,7 +56,7 @@ if (!defined('IP_GEOMASTER_PLUGIN_NAME')) {
  * This action is documented in includes/class-plugin-name-activator.php
  */
 
-function activate_ip_geomaster() {
+function Ip_Geomaster_activate_plugin() {
 
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ip-geomaster-activator.php';
 	Ip_Geomaster_Activator::activate();
@@ -66,13 +66,13 @@ function activate_ip_geomaster() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-plugin-name-deactivator.php
  */
-function deactivate_ip_geomaster() {
+function Ip_Geomaster_deactivate_plugin() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ip-geomaster-deactivator.php';
 	Ip_Geomaster_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_ip_geomaster' );
-register_deactivation_hook( __FILE__, 'deactivate_ip_geomaster' );
+register_activation_hook( __FILE__, 'Ip_Geomaster_activate_plugin' );
+register_deactivation_hook( __FILE__, 'Ip_Geomaster_deactivate_plugin' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -89,10 +89,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-ip-geomaster.php';
  *
  * @since    1.0.0
  */
-function run_ip_geomaster() {
+function Ip_Geomaster_run_plugin() {
 
 	$plugin = new Ip_Geomaster();
 	$plugin->run();
 
 }
-run_ip_geomaster();
+Ip_Geomaster_run_plugin();

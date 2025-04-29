@@ -128,7 +128,7 @@ class Ip_Geomaster {
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Plugin_Name_i18n class in order to set the domain and to register the hook
+	 * Uses the Ip_Geomaster_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -136,9 +136,9 @@ class Ip_Geomaster {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Plugin_Name_i18n();
+		$plugin_i18n = new Ip_Geomaster_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+		//$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
 
@@ -199,10 +199,6 @@ class Ip_Geomaster {
 		
 		$this->loader->add_action( 'wp_ajax_ip_geomaster_ban_many_ips', $plugin_public, 'ip_geomaster_ban_many_ips', 1);
 		$this->loader->add_action( 'wp_ajax_nopriv_ip_geomaster_ban_many_ips', $plugin_public, 'ip_geomaster_ban_many_ips', 1);
-
-
-
-
 		
 	}
 

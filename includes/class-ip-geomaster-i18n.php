@@ -24,7 +24,7 @@
  * @subpackage Ip_Geomaster/includes
  * @author      ipgeomaster <ipgeomaster@gmail.com>
  */
-class Plugin_Name_i18n {
+class Ip_Geomaster_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Plugin_Name_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'plugin-name',
+			'ip-geomaster',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

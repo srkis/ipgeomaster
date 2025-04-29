@@ -87,6 +87,16 @@ This plugin includes the following third-party libraries:
    - Minified file used: `admin/js/jquery.toast.min.js`
    - Original uncompressed source: https://github.com/kamranahmedse/jquery-toast-plugin/blob/master/src/jquery.toast.js
 
+4. **Bootstrap CSS v5.3.5**
+   - Minified file used: `admin/css/bootstrap.min.css`
+   - Original uncompressed source: https://github.com/twbs/bootstrap/blob/v5.3.5/dist/css/bootstrap.css
+
+5. **jquery-toast-plugin CSS**
+   - Minified file used: `admin/css/jquery.toast.min.css`
+   - Original uncompressed source: https://github.com/kamranahmedse/jquery-toast-plugin/blob/master/src/jquery.toast.css
+
+
+
 All minified files are used for performance in production, while the original uncompressed source files are included or publicly accessible for review, as per WordPress plugin repository guidelines.
 
 

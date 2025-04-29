@@ -69,6 +69,27 @@ Currently, the plugin blocks users based on their IP geolocation and bot detecti
 3. Dashboard widget showing threat activity.  
 4. Settings page for customizing block behavior.  
 
+
+== Resources ==
+
+This plugin includes the following third-party libraries:
+
+1. **Bootstrap v5.3.5**
+   - Minified file used: `admin/js/bootstrap.min.js`
+   - Original uncompressed source: https://github.com/twbs/bootstrap/blob/v5.3.5/dist/js/bootstrap.js
+
+2. **Popper.js v1.14.7**
+   - Minified file used: `admin/js/popper.min.js`
+   - Original uncompressed source: https://unpkg.com/popper.js@1.14.7/dist/umd/popper.js
+   - Project repository: https://github.com/popperjs/popper-core/tree/v1.14.7
+
+3. **jquery-toast-plugin**
+   - Minified file used: `admin/js/jquery.toast.min.js`
+   - Original uncompressed source: https://github.com/kamranahmedse/jquery-toast-plugin/blob/master/src/jquery.toast.js
+
+All minified files are used for performance in production, while the original uncompressed source files are included or publicly accessible for review, as per WordPress plugin repository guidelines.
+
+
 == Changelog ==
 
 = 1.0 =  

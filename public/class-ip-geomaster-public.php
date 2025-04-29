@@ -197,7 +197,7 @@ class Ip_Geomaster_Public {
 
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce')
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
@@ -240,7 +240,7 @@ class Ip_Geomaster_Public {
 
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce')
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
@@ -460,7 +460,7 @@ class Ip_Geomaster_Public {
 		// Check if nonce field are sent
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce')
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
@@ -583,7 +583,7 @@ class Ip_Geomaster_Public {
 
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') 
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
@@ -710,7 +710,7 @@ class Ip_Geomaster_Public {
 
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') 
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
@@ -719,7 +719,7 @@ class Ip_Geomaster_Public {
 
 		global $wpdb;
 		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
-		
+
 
 		$row = $wpdb->get_row(
 			$wpdb->prepare(

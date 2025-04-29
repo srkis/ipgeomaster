@@ -163,7 +163,7 @@ class Ip_Geomaster_Public {
 		
 		$row = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT blocked_data, country_msg FROM `$table_name` WHERE type = %s LIMIT 1",
+				"SELECT * FROM `$table_name` WHERE type = %s LIMIT 1",
 				'bots'
 			)
 		);
@@ -197,7 +197,7 @@ class Ip_Geomaster_Public {
 
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip_geomaster_nonce_action')
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
@@ -240,12 +240,11 @@ class Ip_Geomaster_Public {
 
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip_geomaster_nonce_action')
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
-
-	
+		
 		// Get data from the request
 		$user_id = get_current_user_id(); // ID of the current user
 
@@ -385,15 +384,6 @@ class Ip_Geomaster_Public {
 			)
 		);
 
-
-		// $table_name = $wpdb->prefix . 'ip_geomaster_blocked';
-
-		// $query = $wpdb->prepare(
-		// 	"SELECT mode, bots_msg FROM $table_name WHERE type = %s",  // query string
-		// 	'bots'  
-		// );
-
-		// $result = $wpdb->get_row($query); 
 		$bots_msg = $result->bots_msg;
 
 		if ($result->mode == 'off') {
@@ -439,12 +429,6 @@ class Ip_Geomaster_Public {
 			)
 		);
 
-		// $query = $wpdb->prepare(
-		// 	"SELECT mode, ips_msg, blocked_data FROM $table_name WHERE type = %s",  // query string
-		// 	'ips'  
-		// );
-
-		// $result = $wpdb->get_row($query); 
 
 		if (!$result) {
 			return; 
@@ -471,18 +455,16 @@ class Ip_Geomaster_Public {
 
 	}
 
-
-
 	public function ip_geomaster_ban_ip() {
 
 		// Check if nonce field are sent
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip_geomaster_nonce_action')
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
-
+		
 		// Get data from the request
 		$user_id = get_current_user_id(); // ID of the current user
 
@@ -597,10 +579,11 @@ class Ip_Geomaster_Public {
 
 
 	public function ip_geomaster_ban_many_ips(){
+		
 
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip_geomaster_nonce_action')
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
@@ -727,16 +710,16 @@ class Ip_Geomaster_Public {
 
 		if (
 			!isset($_POST['ip_geomaster_nonce_field']) || 
-			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip_geomaster_nonce_action')
+			!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['ip_geomaster_nonce_field'])), 'ip-geomaster-ajax-nonce') // Trebalo bi da koristiš isti nonce kao u JavaScript-u
 		) {
 			wp_send_json_error('Invalid nonce.');
 		}
-
 		
 		$user_id = get_current_user_id(); // ID trenutnog korisnika
 
 		global $wpdb;
 		$table_name = $wpdb->prefix . 'ip_geomaster_blocked';
+		
 
 		$row = $wpdb->get_row(
 			$wpdb->prepare(

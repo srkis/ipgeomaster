@@ -20,6 +20,9 @@
  * Author URI:        https://github.com/srkis
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Requires PHP: 7.0
+ * Requires at least: 5.8
+ * Tested up to: 6.5
  * Text Domain:       ip-geomaster
  * Domain Path:       /languages
  */

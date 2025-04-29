@@ -1,32 +1,33 @@
+/* Stilovi za naslov i objašnjenje plugina */
 .plugin-header {
-    margin-bottom: 30px; 
+    margin-bottom: 30px; /* Razmak između naslova i bokseva */
     padding: 20px;
-    background-color: #f8f9fa; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    background-color: #f8f9fa; /* Svetla pozadina */
+    border-radius: 8px; /* Zaobljeni uglovi */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lagana senka */
 }
 
 .plugin-header h1 {
-    font-size: 2.5rem; 
+    font-size: 2.5rem; /* Veliki naslov */
     font-weight: bold;
-    margin-bottom: 15px; 
+    margin-bottom: 15px; /* Razmak između naslova i teksta */
 }
 
 .plugin-header p {
-    font-size: 1.1rem; 
-    color: #555; 
-    line-height: 1.6; 
+    font-size: 1.1rem; /* Tekst veličine */
+    color: #555; /* Siva boja teksta */
+    line-height: 1.6; /* Prored */
 }
 
 .box-header {
-    margin-bottom: 10px; 
+    margin-bottom: 10px; /* Razmak između naslova i box-a */
 }
 
 .box {
     border: 1px solid #ccc;
     padding: 10px;
-    height: 300px; 
-    overflow-y: auto; 
+    height: 300px; /* Fiksna visina za box */
+    overflow-y: auto; /* Omogući vertikalni scroll */
 }
 
 .country-item, .bot-item {
@@ -43,7 +44,7 @@
 }
 
 .container-fluid {
-    padding-left: 0; 
+    padding-left: 0; /* Uklanjanje paddinga sa leve strane */
 }
 
 #total-bots-text {
@@ -67,17 +68,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px; 
+    margin-top: 50px; /* Podesi po potrebi */
 }
 
 .arrow-icon {
     font-size: 40px;
     cursor: pointer;
-    color: #0073aa; 
+    color: #0073aa; /* Boja strelice */
 }
 
 .arrow-icon:hover {
-    color: #005177; 
+    color: #005177; /* Boja strelice na hover */
 }
 
 .box {
@@ -95,12 +96,12 @@
 }
 
 .bot-item.selected {
-    background-color: #0073aa; 
+    background-color: #0073aa; /* Boja za označene botove */
     color: white;
 }
 
 .bot-item.newly-added {
-    background-color: #b6d9df; 
+    background-color: #b6d9df; /* Svetlo plava boja za novi bot */
     transition: background-color 0.5s ease;
 }
 
@@ -116,7 +117,7 @@
 
 .dashicons-info {
     font-size: 25px;
-    color: #007bff; 
+    color: #007bff; /* Plava boja */
     position: relative;
     top: 5px;
 }
@@ -167,7 +168,7 @@
 .form-outline {
     position: relative;
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Prilagodi širinu po potrebi */
     margin: 20px 0;
 }
 
@@ -176,14 +177,14 @@
     padding: 10px 0;
     font-size: 15px;
     border: none;
-    border-bottom: 2px solid #ccc; 
+    border-bottom: 2px solid #ccc; /* Donja linija */
     outline: none;
     background: transparent;
     transition: border-color 0.3s ease;
-    border-radius: 0; 
+    border-radius: 0; /* Uklanjanje zakrivljenih ivica */
 }
 
-
+/* Labela koja se pomera kada je input u fokusu ili popunjen */
 .form-outline .form-label {
     position: absolute;
     top: 10px;
@@ -194,22 +195,24 @@
     transition: all 0.3s ease;
 }
 
-
+/* Pomera labelu kada je input u fokusu, ima vrednost ili nije placeholder */
 .form-outline .form-control:focus ~ .form-label,
 .form-outline .form-control:not(:placeholder-shown) ~ .form-label {
-    top: -12px; 
+    top: -12px; /* Pomera labelu gore */
     font-size: 12px;
-    color: #007bff; 
+    color: #007bff; /* Boja labele kada je input fokusiran ili popunjen */
 }
 
-
+/* Fokus na inputu, menja donju liniju */
 .form-outline .form-control:focus {
-    border-bottom-color: #007bff; 
-    box-shadow: none; 
-    border-bottom-width: 2px; 
-    border-bottom-style: solid; 
+    border-bottom-color: #007bff; /* Boja donje linije kada je input fokusiran */
+    box-shadow: none; /* Uklanja defaultni box-shadow */
+    border-bottom-width: 2px; /* Ovo sprečava podebljanje donje linije */
+    border-bottom-style: solid; /* Ovo osigurava da linija ostane ravna */
 }
 
+
+/* Postavljanje url-container div-a u red */
 
 .ip-geomaster-site-url {
     font-weight: 600;
@@ -371,7 +374,6 @@
     background: #f1f1f1ab;
 
 }
-
 
 
 #paypall-donate{

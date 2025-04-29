@@ -221,7 +221,7 @@
 	if (pageParam == 'ip-geomaster') {
 
 		let params = {};
-		let ip_geomaster_nonce_field = jQuery("#ip_geomaster_nonce_field").val();
+		let ip_geomaster_nonce_field = ip_geomaster_ajax.nonce;
 		params.action = 'ip_geomaster_fetch_countries';
 		params.ip_geomaster_nonce_field = ip_geomaster_nonce_field;
 	
@@ -229,7 +229,7 @@
 		jQuery.ajax({
 			type: 'GET',
 			dataType: "json",
-			url: getBaseURL() + "wp-admin/admin-ajax.php",
+			url: ip_geomaster_ajax.ajax_url,
 			data: params,
 		
 			success: function(response) {
@@ -283,7 +283,7 @@
 			});
 
 				// Fetch bots
-				let ip_geomaster_nonce_field = jQuery("#ip_geomaster_nonce_field").val();
+				let ip_geomaster_nonce_field = ip_geomaster_ajax.nonce;
 				params.action = 'ip_geomaster_fetch_bots';
 				params.ip_geomaster_nonce_field = ip_geomaster_nonce_field;
 
@@ -291,7 +291,7 @@
 				jQuery.ajax({
 					type: 'GET',
 					dataType: "json",
-					url: getBaseURL() + "wp-admin/admin-ajax.php",
+					url: ip_geomaster_ajax.ajax_url,
 					data: params,
 				
 					success: function(response) {
@@ -348,7 +348,7 @@
 
 		}else if(pageParam === 'ip-geomaster-ban-ip') {
 
-			let ip_geomaster_nonce_field = jQuery("#ip_geomaster_nonce_field").val();
+			let ip_geomaster_nonce_field = ip_geomaster_ajax.nonce;
 				params.action = 'ip_geomaster_get_banned_ips';
 				params.ip_geomaster_nonce_field = ip_geomaster_nonce_field;
 
@@ -360,7 +360,7 @@
 				jQuery.ajax({
 					type: 'GET',
 					dataType: "json",
-					url: getBaseURL() + "wp-admin/admin-ajax.php",
+					url: ip_geomaster_ajax.ajax_url,
 					data: params,
 				
 					success: function(response) {
@@ -439,7 +439,7 @@
 		
 		let params = {
 			action: 'ip_geomaster_ban_bots',
-			ip_geomaster_nonce_field: jQuery("#ip_geomaster_nonce_field").val(),
+			ip_geomaster_nonce_field: ip_geomaster_ajax.nonce,
 			banned_bots: bannedBots,
 			allowed_bots: allowed_bots,
 			bots_mode: botsMode,
@@ -449,7 +449,7 @@
 		jQuery.ajax({
 			type: 'POST',
 			dataType: "json",
-			url: getBaseURL() + "wp-admin/admin-ajax.php",
+			url: ip_geomaster_ajax.ajax_url,
 			data: params,
 			success: function(response) {
 				if (response.success) {
@@ -486,7 +486,7 @@
 		//set params
 		let params = {
 			action: 'ip_geomaster_ban_countries', // Action hook
-			ip_geomaster_nonce_field: jQuery("#ip_geomaster_nonce_field").val(), // Nonce field
+			ip_geomaster_nonce_field: ip_geomaster_ajax.nonce, // Nonce field
 			banned_countries: bannedCountries, // Banned countries
 			country_msg: jQuery('#banned_countries_msg').val()
 		};
@@ -495,7 +495,7 @@
 		jQuery.ajax({
 			type: 'POST',
 			dataType: "json",
-			url: getBaseURL() + "wp-admin/admin-ajax.php", // ajax url
+			url: ip_geomaster_ajax.ajax_url,
 			data: params, // data object with parameters
 			success: function(response) {
 				if (response) {
@@ -522,7 +522,7 @@
 
 			let params = {
 				action: 'ip_geomaster_ban_ip', // Action hook
-				ip_geomaster_nonce_field: jQuery("#ip_geomaster_nonce_field").val(), // Nonce field
+				ip_geomaster_nonce_field: ip_geomaster_ajax.nonce, // Nonce field
 				banned_ip: jQuery('#ip-geomaster-newIp').val() ,  //The IP address to ban.
 				banned_ip_note: jQuery('#ip-geomaster-newNotes').val(),  //A comment describing the ban.
 				
@@ -536,7 +536,7 @@
 			jQuery.ajax({
 				type: 'POST',
 				dataType: "json",
-				url: getBaseURL() + "wp-admin/admin-ajax.php", // ajax url
+				url: ip_geomaster_ajax.ajax_url,
 				data: params, // data object with parameters
 				success: function(response) {
 				
@@ -564,7 +564,7 @@
 
 			let params = {
 				action: 'ip_geomaster_remove_ban_ip', // Action hook
-				ip_geomaster_nonce_field: jQuery("#ip_geomaster_nonce_field").val(), // Nonce field
+				ip_geomaster_nonce_field: ip_geomaster_ajax.nonce, // Nonce field
 				banned_ip: ipAddress
 				
 			};
@@ -577,7 +577,7 @@
 			jQuery.ajax({
 				type: 'POST',
 				dataType: "json",
-				url: getBaseURL() + "wp-admin/admin-ajax.php", // ajax url
+				url: ip_geomaster_ajax.ajax_url,
 				data: params, // data object with parameters
 				success: function(response) {
 				
@@ -611,7 +611,7 @@
 
 			let params = {
 				action: 'ip_geomaster_ban_ip', // Action hook
-				ip_geomaster_nonce_field: jQuery("#ip_geomaster_nonce_field").val(), // Nonce field
+				ip_geomaster_nonce_field: ip_geomaster_ajax.nonce, // Nonce field
 				banned_ips_msg: jQuery('#banned_ips_msg').val(),  //Show msg to banned user IP
 				ips_mode: ipsMode,
 			};
@@ -619,7 +619,7 @@
 			jQuery.ajax({
 				type: 'POST',
 				dataType: "json",
-				url: getBaseURL() + "wp-admin/admin-ajax.php", // ajax url
+				url: ip_geomaster_ajax.ajax_url,
 				data: params, // data object with parameters
 				success: function(response) {
 				
@@ -649,7 +649,7 @@
 		//set params
 		let params = {
 			action: 'ip_geomaster_ban_many_ips', // Action hook
-			ip_geomaster_nonce_field: jQuery("#ip_geomaster_nonce_field").val(), // Nonce field
+			ip_geomaster_nonce_field: ip_geomaster_ajax.nonce, // Nonce field
 			banned_ips: bannedIps, 
 			banned_ips_msg: jQuery('#banned_ips_msg').val()
 		};
@@ -658,7 +658,7 @@
 		jQuery.ajax({
 			type: 'POST',
 			dataType: "json",
-			url: getBaseURL() + "wp-admin/admin-ajax.php", // ajax url
+			url: ip_geomaster_ajax.ajax_url,
 			data: params, // data object with parameters
 			success: function(response) {
 				if (response.success) {
@@ -689,7 +689,7 @@
 
 		let params = {
 			action: 'ip_geomaster_get_banned_ips', // Action hook
-			ip_geomaster_nonce_field: jQuery("#ip_geomaster_nonce_field").val(), // Nonce field
+			ip_geomaster_nonce_field: ip_geomaster_ajax.nonce, // Nonce field
 			banned_ips_msg: jQuery('#banned_ips_msg').val()  //Show msg to banned user IP
 		};
 
@@ -702,7 +702,7 @@
 		jQuery.ajax({
 			type: 'GET',
 			dataType: "json",
-			url: getBaseURL() + "wp-admin/admin-ajax.php",
+			url: ip_geomaster_ajax.ajax_url,
 			data: params,
 		
 			success: function(response) {
@@ -745,27 +745,6 @@
 	}
 
 	
-	function getBaseURL() {
-		var url = location.href;
-		var baseURL = url.substring(0, url.indexOf('/', 14));
-	
-		if (baseURL.indexOf('http://localhost') != -1) {
-	
-		  var url = location.href;
-		  var pathname = location.pathname;
-		  var index1 = url.indexOf(pathname);
-		  var index2 = url.indexOf("/", index1 + 1);
-		  var baseLocalUrl = url.substr(0, index2);
-	
-		  return baseLocalUrl + "/";
-		}
-		else {
-	
-		  return baseURL + "/";
-		  }
-	
-		}
-
 		// Function for showing toast messages
 		function showToast(heading, message, type = 'info') {
 			jQuery.toast({

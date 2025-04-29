@@ -62,9 +62,9 @@ class IP_GeoMaster_Bots {
     
        
         if ( ! $wp_filesystem->is_writable( $bad_bots_file_path ) || ! $wp_filesystem->is_writable( $good_bots_file_path ) ) {
-            return ['status' => 'error', 'message' => 'Permission denied for one or both JSON files'];
+            return ['status' => 'error', 'message' => 'Permission denied for one or both JSON files. <br><br> <b>Please change the permissions of the ip-geomaster plugin files to 644 or 755.</b>'];
+
         }
-    
         
         $bad_bots_written = file_put_contents($bad_bots_file_path, json_encode($decoded_bad_bots_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         $good_bots_written = file_put_contents($good_bots_file_path, json_encode($decoded_good_bots_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));

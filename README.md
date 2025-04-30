@@ -40,10 +40,32 @@ Whether you want to protect your login pages, admin dashboard, or entire site, I
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/ip-geomaster/` directory, or install the plugin through the WordPress plugins screen directly.  
-2. Activate the plugin through the 'Plugins' menu in WordPress.  
-3. Navigate to **Settings → IP Geomaster** to configure plugin options.  
+== Installation (via WordPress.org) ==
+
+For users who want to simply use the plugin, you can download and install it directly from WordPress.org without the need for Composer:
+
+1. Visit IP Geomaster on WordPress.org.
+
+2. Download and install the plugin as you would with any other WordPress plugin.
+
+3. Activate the plugin through the WordPress plugin manager and configure it under
+ **Settings → IP Geomaster**.
+
 4. Start adding countries, IPs, or bots to your block/allow list.  
+
+
+== Installation (via Composer) ==
+
+If you want to develop or use the plugin directly from GitHub, follow these steps:
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/srkis/ipgeomaster.git
+
+2. Install dependencies using Composer:
+
+   cd ip-geomaster
+   composer install
 
 == Frequently Asked Questions ==
 

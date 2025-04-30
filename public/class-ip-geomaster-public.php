@@ -1,11 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-require_once IP_GEOMASTER_ROOT_PATH . '/vendor/maxmind-db/src/MaxMind/Db/Reader.php';
-require_once IP_GEOMASTER_ROOT_PATH . '/vendor/maxmind-db/src/MaxMind/Db/Reader/Decoder.php';
-require_once IP_GEOMASTER_ROOT_PATH . '/vendor/maxmind-db/src/MaxMind/Db/Reader/InvalidDatabaseException.php';
-require_once IP_GEOMASTER_ROOT_PATH . '/vendor/maxmind-db/src/MaxMind/Db/Reader/Util.php';
-require_once IP_GEOMASTER_ROOT_PATH . '/vendor/maxmind-db/src/MaxMind/Db/Reader/Metadata.php';
+require_once IP_GEOMASTER_ROOT_PATH . '/vendor/autoload.php';
 
 /**
  * The public-facing functionality of the plugin.

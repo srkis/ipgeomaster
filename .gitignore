@@ -1,0 +1,23 @@
+# Ignore OS junk
+.DS_Store
+Thumbs.db
+
+# Ignore PHPStorm / VSCode / other IDE stuff
+.idea/
+.vscode/
+
+# Ignore Composer vendor directory in development
+/vendor/
+
+# Ignore node/npm related files if you're using them
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignore local environment files
+.env
+.env.*
+
+# Ignore build artifacts
+*.zip
+/dist/

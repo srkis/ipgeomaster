@@ -1,0 +1,16 @@
+{
+    "name": "srkimafia/ip-geomaster",
+    "description": "IP GeoMaster plugin for IP geolocation blocking",
+    "type": "wordpress-plugin",
+    "require": {
+      "maxmind-db/reader": "^1.11"
+    },
+    "autoload": {
+      "psr-4": {
+        "IpGeoMaster\\": "public/"
+      }
+    },
+    "minimum-stability": "stable",
+    "license": "GPL-2.0-or-later"
+  }
+  

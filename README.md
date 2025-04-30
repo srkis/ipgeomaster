@@ -40,7 +40,7 @@ Whether you want to protect your login pages, admin dashboard, or entire site, I
 
 == Installation ==
 
-== Installation (via WordPress.org) ==
+== via WordPress.org ==
 
 For users who want to simply use the plugin, you can download and install it directly from WordPress.org without the need for Composer:
 
@@ -54,12 +54,12 @@ For users who want to simply use the plugin, you can download and install it dir
 4. Start adding countries, IPs, or bots to your block/allow list.  
 
 
-== Installation (via Composer) ==
+=== Using Composer (for developers) ===
 
 If you want to develop or use the plugin directly from GitHub, follow these steps:
 
 1. Clone this repository:
-   ```bash
+
    git clone https://github.com/srkis/ipgeomaster.git
 
 2. Install dependencies using Composer:
@@ -83,6 +83,9 @@ The plugin uses up-to-date geo IP databases to ensure high accuracy in identifyi
 
 = Can I track blocked countries or bots? =  
 Currently, the plugin blocks users based on their IP geolocation and bot detection in real-time, but there is no specific logging feature for blocked users. This could be added in future updates.
+
+= Is this plugin GDPR compliant? =  
+Yes. IP Geomaster does not store or transmit any personal data to third-party services. All geolocation checks happen locally.
 
 == Screenshots ==
 
@@ -124,11 +127,12 @@ All minified files are used for performance in production, while the original un
 
 == Changelog ==
 
-= 1.0 =  
+= 1.0.0 - 2024-04-30 =
 * Initial release.  
 * Added functionality for country-based blocking.  
 * Pre-loaded with 950 bad bots and 50 good bots.  
 * Ability to manage bot lists and customize allowed/blocked bots.  
+* Real-time blocking and optimized performance
 * Optimized for speed and performance.  
 
 == Upgrade Notice ==

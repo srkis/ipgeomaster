@@ -12,20 +12,37 @@
  * @package           Ip_Geomaster
  *
  * @wordpress-plugin
+ * 
+ /**
  * Plugin Name:       IP Geomaster
  * Plugin URI:        https://ipgeomaster.icodes.rocks/
- * Description:       The Fastest IP Geolocation Service on the Web. Find out where your website’s visitors are coming from. Detect potential security threats. Easily optimize for user experience.
+ * Description:       The fastest IP geolocation service for WordPress. Block countries, IPs, and bots to improve security and performance.
  * Version:           1.0.0
- * Author:            IP Geomaster
- * Author URI:        https://github.com/srkis
+ * Author:            srkimafia
+ * Author URI:        https://profiles.wordpress.org/srkimafia/
  * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Requires PHP: 7.0
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Requires PHP:      7.0
  * Requires at least: 5.8
- * Tested up to: 6.5
+ * Tested up to:      6.5
  * Text Domain:       ip-geomaster
  * Domain Path:       /languages
+ * GitHub Plugin URI: https://github.com/srkis/ipgeomaster
+ *
+ * This file is part of IP Geomaster.
+ * Copyright (C) 2024 srkimafia <srki.bgd1@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
  */
+
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {

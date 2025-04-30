@@ -322,7 +322,7 @@ class Ip_Geomaster_Public {
   		$reader = new MaxMind\Db\Reader($databaseFile);
 		$ip = $this->_getUserIpAddr();
 		global $wpdb;
-
+		
 
     try {
         $record = $reader->get($ip);
@@ -330,7 +330,6 @@ class Ip_Geomaster_Public {
         if (isset($record['country']['iso_code'])) {
             $country_code = $record['country']['iso_code']; // ISO code of the country
 
-		
 			$table_name = esc_sql( $wpdb->prefix . 'ip_geomaster_blocked' );
 
 			$row = $wpdb->get_row(
